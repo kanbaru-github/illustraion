@@ -1,0 +1,16 @@
+<h1>新規投稿</h1>
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
+  <%= @post.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<%= form_with model: @post, local:true do |f| %>
+  <h5>投稿画像</h5>
+  <%= f.attachment_field :image %>
+  <h5>タイトル</h5>
+  <%= f.text_field :title %>
+  <h5>作者コメント</h5>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿' %>
+<% end %>

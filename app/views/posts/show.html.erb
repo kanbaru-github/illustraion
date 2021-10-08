@@ -1,0 +1,10 @@
+<h1>詳細</h1>
+<%= attachment_image_tag @post, :image %>
+<h5>タイトル</h5>
+<%= @post.title %>
+<h5>投稿者からのコメント</h5>
+<%= @post.body %>
+<% if @post.user == current_user %>
+  <%= link_to "編集", edit_post_path(@post) %>
+  <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>

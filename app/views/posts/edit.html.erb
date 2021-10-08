@@ -1,0 +1,8 @@
+<h1>編集</h1>
+<%= form_with model:@image, url:"/images/#{@image.id}". local:true do |f| %>
+  <h5>タイトル</h5>
+  <%= f.text_field :title %>
+  <h5>作者コメント</h5>
+  <%= f.text_area :body %>
+  <%= submit '保存' %>
+<% end %>
